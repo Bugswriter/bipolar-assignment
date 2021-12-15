@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Suraj Assignment</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maniritika.xyz/css/normalize.css">
+    <link rel="stylesheet" href="https://maniritika.xyz/css/skeleton.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script>
+      function readURL(input) {
+	  if (input.files && input.files[0]) {
+	      var reader = new FileReader();
+
+	      reader.onload = function (e) {
+		  $('#input').attr('src', e.target.result).width(500);
+	      };
+
+	      reader.readAsDataURL(input.files[0]);
+	  }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Suraj Kushwah's Assignment</h1>
+      <hr>
+      <div class="row">
+	<div class="six columns">
+          <h4>Upload Image File</h4>
+	  <form action="/" method="post" enctype = "multipart/form-data">
+	    <input type="file" name="img" onchange="readURL(this);"><br>
+	    <input type="submit" value="Upload">
+	  </form>
+	</div>
+      </div>
+      <div class="row">
+	<div class="six columns">
+	  <img id="input" src="#"/>
+	</div>
+	<div class="six columns">
+	{% if out_img %}
+	  <img id="output" src="{{ out_img }}"/>
+	{% else %}
+	  <img id="output" src="#"/>
+	{% endif %}
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
